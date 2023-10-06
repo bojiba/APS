@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.project1.R;
+import com.example.project1.sharedpreferences.SharedPre;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +27,11 @@ public class MainOrderFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private TextView textView69;
+    private TextView textView64;
+    private TextView textView62;
+    private TextView textView68;
+    private SharedPre sharedPre;
 
     public MainOrderFragment() {
         // Required empty public constructor
@@ -55,12 +62,21 @@ public class MainOrderFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        sharedPre = new SharedPre(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_order, container, false);
+        View view = inflater.inflate(R.layout.fragment_main_order, container, false);
+        textView69 = view.findViewById(R.id.textView69);
+        textView64 = view.findViewById(R.id.textView64);
+        textView62 = view.findViewById(R.id.textView62);
+        textView68 = view.findViewById(R.id.textView68);
+        textView68.setText(sharedPre.getUnit_id());
+        textView64.setText(sharedPre.getItem_id());
+        textView69.setText(sharedPre.getQty());
+        textView62.setText(sharedPre.getItem_name());
+        return view;
     }
 }

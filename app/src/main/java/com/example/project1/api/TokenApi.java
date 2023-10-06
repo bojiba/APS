@@ -30,8 +30,13 @@ public interface TokenApi {
     );
     @GET("api/get-manufacture")
     Observable<Response<List<GetMo>>> getMo(
-            @Query("customer_name")String mCustomer_name
+            @Query("customer")String mCustomer_name
             ,@Query("token")String mToken
             ,@Query("so_id")String mSo_id
+    );
+    @GET("api/get-current-stage-com")
+    Observable<Response<List<BomResponse>>> getBom(
+            @Query("token")String mToken
+            ,@Query("item_id")String mItem_id
     );
 }

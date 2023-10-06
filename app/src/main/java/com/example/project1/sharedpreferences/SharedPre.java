@@ -10,8 +10,11 @@ public class SharedPre extends AppCompatActivity  {
     private SharedPreferences shpf;
     private Context context;
     private String name;
-    private String soid;
-    private String customerName;
+    private int id;
+    private String unit_id;
+    private String item_id;
+    private String qty;
+    private String item_name;
 
     public SharedPre(Context context){
         this.context=context;
@@ -31,19 +34,42 @@ public class SharedPre extends AppCompatActivity  {
         shpf.edit().putString("name",name).commit();
     }
 
-    public String getSoid() {
-        return shpf.getString("soid","");
+    public int getId() {
+        return shpf.getInt("id",0);
     }
 
-    public void setSoid(String soid) {
-        shpf.edit().putString("soid",soid).commit();
+    public void setId(int id) {
+        shpf.edit().putInt("id",id).commit();
     }
 
-    public String getCustomerName() {
-        return shpf.getString("customerName","");
+    public String getUnit_id() {
+        return shpf.getString("unit_id","");
     }
 
-    public void setCustomerName(String customerName) {
-        shpf.edit().putString("customerName",customerName).commit();
+    public void setUnit_id(String unit_id) {
+        shpf.edit().putString("unit_id",unit_id).commit();
+    }
+
+    public String getItem_id() {
+        return shpf.getString("item_id","");
+    }
+
+    public void setItem_id(String item_id) {
+        shpf.edit().putString("item_id",item_id).commit();
+    }
+
+    public String getQty() {
+        return shpf.getString("qty","");
+    }
+
+    public void setQty(String qty) {
+        shpf.edit().putString("qty",qty).commit();    }
+
+    public String getItem_name() {
+        return shpf.getString("item_name","");
+    }
+
+    public void setItem_name(String item_name) {
+        shpf.edit().putString("item_name",item_name).commit();
     }
 }
